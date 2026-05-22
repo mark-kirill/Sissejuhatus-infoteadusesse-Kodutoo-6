@@ -131,6 +131,6 @@ if not data.empty and not geo_data.empty:
     merged_data = merging(data, geo_data)
     year = st.sidebar.selectbox("Vali aasta:", sorted(merged_data['Aasta'].unique()))
     year_data = get_data_for_year(merged_data, year)
-    plot_map(year_data, year)
+    plot(year_data, year)
 else:
     st.warning("Andmete laadimine ebaõnnestus.")
