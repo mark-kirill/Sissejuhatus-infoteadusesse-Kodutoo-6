@@ -105,20 +105,13 @@ def merging(df, gdf):
     merged["Loomulik iive"] = merged["Mehed Loomulik iive"] + merged["Naised Loomulik iive"]
     return merged
 
-def plot_map(df):
+def plot_map(df, year):
     fig, ax = plt.subplots(1, 1, figsize=(12, 8))
-    
-    # Replace 'value_column' with the column name you want to visualize
-    df.plot(column='Loomulik iive', 
-                     ax=ax,
-                     legend=True,
-                     cmap='viridis',  # Choose a colormap
-                     legend_kwds={'label': "Loomulik iive"})
-    
-    plt.title('Loomulik iive maakonniti aastal 2023')
-    plt.axis('off')  # Hide axis
-    plt.tight_layout()
-    plt.show()
+    df.plot(column='Loomulik iive', ax=ax, legend=True, cmap='viridis',
+            legend_kwds={'label': "Loomulik iive"})
+    plt.title(f'Loomulik iive maakonniti aastal {year}')
+    plt.axis('off')
+    st.pyplot(fig)
 
 st.title("Kodutöö 6")
 st.write("Uurime loomulikku iivet erinevatel aastatel")
