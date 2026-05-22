@@ -105,7 +105,7 @@ def merging(df, gdf):
     merged["Loomulik iive"] = merged["Mehed Loomulik iive"] + merged["Naised Loomulik iive"]
     return merged
 
-def plot(df):
+def plot_map(df):
     fig, ax = plt.subplots(1, 1, figsize=(12, 8))
     
     # Replace 'value_column' with the column name you want to visualize
@@ -131,6 +131,6 @@ if not data.empty and not geo_data.empty:
     merged_data = merging(data, geo_data)
     year = st.sidebar.selectbox("Vali aasta:", sorted(merged_data['Aasta'].unique()))
     year_data = get_data_for_year(merged_data, year)
-    plot(year_data, year)
+    plot_map(year_data, year)
 else:
     st.warning("Andmete laadimine ebaõnnestus.")
